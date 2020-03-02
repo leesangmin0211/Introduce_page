@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>업다운</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+     window.onload = function(){
+
+            //프로그램에 사용 될 요소들을 화면에서 DOM으로 참조함.
+
+            var btns1 = document.getElementById("btn");
+
+            var text1 = document.getElementById("text");
+
+            var devNum1 = document.getElementById("devNum");
+
+           //개발자가 입력 할 번호를 저장할 변수.
+
+            devNum.innerHTML="0";
+
+           //시스템이 난수를 발생시켜, 임의의 번호를 저장
+
+           var num = 1 + Math.abs(Math.floor(Math.random()*500));
+
+            //입력 값의 범위를 지정하기 위한 변수
+
+            var min = 1;
+
+            var max = 500;
+
+            //개발자로부터 숫자를 입력받기 위한 버튼을 생성
+
+            for(var i=0; i<10; i++) {
+
+                var btn= document.createElement("button");
+
+                btn.innerHTML=""+i;
+
+                btn.onclick=function(e) {
+
+                    var number = parseInt(devNum.innerHTML);
+
+                    var num = parseInt(this.innerHTML);
+
+
+                    devNum.innerHTML = number * 10 + num;
+
+                };
+
+                btns1.appendChild(btn);
+
+            }
+
+            //결과 확인 버튼 생성
+
+            var okBtn = document.createElement("button");
+
+            okBtn.innerHTML="OK";
+
+            //결과 확인 버튼 눌렀을때, 이벤트 처리 부분.
+
+            okBtn.onclick = function(e) {
+
+                var number = parseInt(devNum.innerHTML);
+                    //1보다 작고 500보다 클
+                if(number < min || number > max) {
+
+                    text1.value += "입력한 숫자" + number + "는 범위에 맞지 않습니다. \n";
+
+                    devNum.innerHTML = "0"
+
+                    //선택한 숫자와 맞춰야하는 숫자가 같을때
+                }else if(number==num) {
+
+                    text1.value += number + " 정답입니다 \n계속 하실려면 새로고침 \n나가시려면 나가기 버튼을 눌러주세요..//";
+
+                    devNum.innerHTML = "0"
+
+                    //선택한 숫자가 맞춰야하는 숫자보다 작을때
+                }else if(number < num) {
+
+                    text1.value += number + "은(는) 정답이 아닙니다.. \n";
+
+                    min=number;
+
+                    text1.value += min+" 초과 "+max+" 미만 \n";
+
+                    devNum.innerHTML = "0"
+                    //선택한 숫자가 맞춰야하는 숫자보다 클때
+                }else if(number > num) {
+
+                    text1.value += number + "은(는) 정답이 아닙니다.. \n";
+
+                    max=number;
+
+                    text1.value +=min+" 초과 "+max+" 미만 \n";
+
+                    devNum.innerHTML = "0"
+
+                }
+
+            };
+
+            btns1.appendChild(okBtn);
+        };
+    </script>
+  <style>
+  .fakeimg {
+    height: 265px;
+    color: black;
+  }
+      .btn{
+          position: relative;
+          left: 400px;
+          bottom: 200px;
+      }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <h1>저희팀을 소개합니다.</h1> 
+</div>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="index.html"><img src="img/leesongoche.jpg" width="100" height="40"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="sub1.html">이상민</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="sub2.html">이상윤</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="sub3.html">송기호</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="sub4.html">오기환</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="sub5.html">최주영</a>
+      </li>
+    </ul>
+  </div>  
+</nav>
+<div class="container" style="margin-top:30px;">
+  <div class="row">
+    <div class="col-sm-3">
+      <h2>팀원</h2>
+      <div class="fakeimg"><br>이상민 : 가위바위보 게임<br><br>이상윤 : 업다운 게임<br><br>송기호 : 계산기 <br><br> 오기환 : 팀 소개 페이지 <br><br> 최주영 : 영상</div>
+      <h2>작품들</h2>
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="sub1-1.html">가위바위보</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sub2-1.html">업다운</a>
+        </li>  
+        <li class="nav-item">
+          <a class="nav-link" href="sub3-1.html">계산기</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sub4-1.html">팀 소개</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sub5-1.html">영상</a>
+        </li>
+      </ul>
+      <hr class="d-sm-none">
+    </div>
+      <div class="col-sm-8">
+      <h2></h2>
+      <div class="fakeimg">
+         <div>
+
+    <strong>
+
+       랜덤으로 숫자가 정해졌습니다.<br/>
+
+        아래 버튼을 이용해서 맞춰보세요.
+
+    </strong>
+
+ </div>
+
+
+
+<div>
+
+    현재 선택한 번호 : <span id="devNum"></span>
+
+</div>
+
+
+
+<div id="btn"></div>
+
+
+
+<textarea id="text" rows="18" cols="40"></textarea>
+          </div>
+          <button class="btn"><a href="sub2-1.html">나가기</a></button>
+  </div>
+    </div>
+  </div>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <p>Copyright &copy; 2019.05 Designed by LeeSangMin, CheJuYung. All Rights Reserved.</p>
+</div>
+
+
+</body>
+</html>
